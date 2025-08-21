@@ -14,7 +14,7 @@ COSIG is compiled using [pdfLaTeX](https://www.math.rug.nl/~trentelman/jacob/pdf
 
 # Style
 
-A .tex template for guides is available [here](https://github.com/reeserich/cosig/blob/main/tex/template.tex). Guides should be written in a neutral and professional tone for a diverse audience. 
+A .tex template for guides is available [here](https://github.com/reeserich/cosig/blob/main/tex/_template.tex). Guides should be written in a neutral and professional tone for a diverse audience. 
 
 Wherever possible, readers should be directed towards additional resources. Wherever possible, guides should provide examples of lessons from the guide being applied to real published articles. 
 
