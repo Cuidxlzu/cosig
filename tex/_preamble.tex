@@ -47,8 +47,17 @@
 \newcommand{\cosigpart}[1]{
   \addcontentsline{toc}{part}{#1}
 }
+\begin{comment}
 \newcommand{\cosigsection}[1]{
   \section*{#1}
   \phantomsection % avoid warnings from hyperref about the anchor of a bookmark and its parent's
+  \addcontentsline{toc}{section}{#1}
+}
+\end{comment}
+
+\newcommand{\cosigsection}[2]{
+  \section*{#1}
+  \phantomsection % avoid warnings from hyperref about the anchor of a bookmark and its parent's
+  Last updated: #2 | \href{https://cosig.net}{cosig.net} | DOI: \href{https://doi.org/10.17605/OSF.IO/2KDEZ}{10.17605/OSF.IO/2KDEZ}
   \addcontentsline{toc}{section}{#1}
 }
