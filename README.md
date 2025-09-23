@@ -122,3 +122,46 @@ Richardson, Reese. “The Collection of Open Science Integrity Guides (COSIG): E
   url={https://doi.org/10.5281/zenodo.15564777}
 }
 ```
+
+### Contributors
+
+The following individuals have contributed to COSIG in some way:
+
+- Anna Abalkina [(ORCiD)](https://orcid.org/0000-0003-1469-4907)
+
+- René Aquarius [(ORCiD)](https://orcid.org/0000-0002-0968-6884)
+
+- Lonni Besançon [(ORCiD)](https://orcid.org/0000-0002-7207-1276)
+
+- Elisabeth Bik [(ORCiD)](https://orcid.org/0000-0001-5477-0324)
+
+- David Bimler [(ORCiD)](https://orcid.org/0000-0003-2405-0697)
+
+- Jennifer Byrne [(ORCiD)](https://orcid.org/0000-0002-8923-0587)
+
+- Guillaume Cabanac [(ORCiD)](https://orcid.org/0000-0003-3060-6241)
+
+- Jana Christopher [(ORCiD)](https://orcid.org/0000-0002-2699-3368)
+
+- M.V. Dougherty [(ORCiD)](https://orcid.org/0000-0002-8731-6045)
+
+- Ian Hussey [(ORCiD)](https://orcid.org/0000-0001-8906-7559)
+
+- Yagmur Ozturk [(ORCiD)](https://orcid.org/0000-0002-2843-8990)
+(**Maintainer**)
+
+- Kevin Patrick [(ORCiD)](https://orcid.org/0009-0001-7491-9242)
+
+- Solal Pirelli [(ORCiD)](https://orcid.org/0009-0003-4336-1316)
+(**Maintainer**)
+
+- Reese Richardson [(ORCiD)](https://orcid.org/0000-0002-6058-5886)
+(**Maintainer**)
+
+- Nicholas Ritchie [(ORCiD)](https://orcid.org/0000-0001-5734-5729)
+
+- Matt Spick [(ORCiD)](https://orcid.org/0000-0002-9417-6511)
+
+- Stefan Stender [(ORCiD)](https://orcid.org/0000-0003-0281-5900)
+
+- *Nerita vitiensis* (pseudonymous)
