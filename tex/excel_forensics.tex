@@ -3,8 +3,7 @@
 \begin{document}
 \flushleft\includegraphics[width=0.5\textwidth]{img/home/241017_final_logo_mockup.png}
 
-\cosigsectionnew{Data forensics using Micosoft Excel}{15 September 2025}
-%\textit{Last updated: 15 September 2025}
+\cosigsection{Data forensics using Microsoft Excel}{25 September 2025}
 
 Scientific data is often stored in a tabular format. File formats for storing tabular data include:
 
@@ -13,9 +12,9 @@ Scientific data is often stored in a tabular format. File formats for storing ta
     \item \texttt{.csv}: comma-separated values, text-based
     \item \texttt{.tsv}: tab-separated values, text-based
     \item \texttt{.xlsx}: modern Microsoft Excel workbook format, text-based (specifically, \href{https://en.wikipedia.org/wiki/XML}{XML}-based)
-    \item \texttt{.xlsm}: modern Excel workbook format with \href{https://support.microsoft.com/en-us/office/quick-start-create-a-macro-741130ca-080d-49f5-9471-1e5fb3d581a8}{macros} enabled, text-based
+    \item \texttt{.xlsm}: modern Microsoft Excel workbook format with \href{https://support.microsoft.com/en-us/office/quick-start-create-a-macro-741130ca-080d-49f5-9471-1e5fb3d581a8}{macros} enabled, text-based
     \item \texttt{.xlsb}: modern Microsoft Excel workbook format, binary
-    \item \texttt{.xls}: older (pre-2003) Excel workbook format, binary
+    \item \texttt{.xls}: older (pre-2007) Excel workbook format, binary
 \end{itemize}
 
 All of the above file formats can be opened in \href{https://en.wikipedia.org/wiki/Microsoft_Excel}{Microsoft Excel}, which can be a useful tool for spotting potential data irregularities. This guide covers tips for using Excel to investigate the integrity of data stored in a tabular format.
@@ -25,7 +24,7 @@ All of the above file formats can be opened in \href{https://en.wikipedia.org/wi
 Manual data collection using spreadsheets usually involves adding row after row to a sheet, often within Excel.
 This can be automated, such as by using software that collects form responses and appends each response as a row to a file.
 
-Once data collection has occured, there is usually no reason to change the order of row, duplicates rows or edit row values out of the order they appear in the spreadsheet. If this has occurred, it does not necessarily imply that the data in the sheet was falsified or fabricated. However, in combination with other observations, it can be a strong indication that data manipulation has taken place. 
+Once data collection is done, there is usually no reason to change the order of row, duplicates rows or edit row values out of the order they appear in the spreadsheet. If this has occurred, it does not necessarily imply that the data in the sheet was falsified or fabricated. However, in combination with other observations, it can be a strong indication that data manipulation has taken place. 
 
 \pagebreak
 
@@ -42,7 +41,7 @@ By examining the an Excel workbook's ``calculation chain'' file, you can confirm
 
 \subsubsection*{Applicability}
 
-Calculation chain files are recoverable in the ``Office Open XML'' file format supported by Microsoft Excel 2007 and later (i.e., files with an \texttt{.xlsx} or \texttt{.xlsm} extension). 
+Calculation chain files are recoverable in the modern ``Office Open XML'' file format supported by Microsoft Excel 2007 and later, i.e., files with an \texttt{.xlsx} or \texttt{.xlsm} extension. 
 
 Calculation chain files are not recoverable for the \texttt{.xls} file format, regardless of which version of Excel generated them.
 They are also not recoverable in the binary \texttt{.xlsb} file format.
@@ -86,14 +85,14 @@ Instead of changing the display name of the file, change the filename extension 
 \end{minipage}
 
 You can now inspect the contents of the Excel file by opening this ZIP archive!
-Indeed, the modern Microsoft Office file formats (like \texttt{.xlsx}, \texttt{.pptx} and \texttt{.docx}) are all ZIP archives in disguise.
+Indeed, the modern Microsoft Office file formats (like \texttt{.xlsx}, \texttt{.pptx}, and \texttt{.docx}) are all ZIP archives in disguise.
 
 For more details, consult the \href{https://ecma-international.org/publications-and-standards/standards/ecma-376/}{ECMA-376 standard} that defines Office Open XML formats.
 
 \subsubsection*{Locating the calculation chain file}
 
-To detect out-of-order edits, we will use the ``calculation chain'' file, which records the order of all formulas.
-It instruct Excel on which order to run the formulas in the spreadsheet so that Excel does not have to recompute the order every time the file is opened.
+To detect out-of-order edits, we will use the calculation chain file, which records the order of all formulas.
+It instructs Excel on which order to run the formulas in the spreadsheet so that Excel does not have to recompute the order every time the file is opened.
 
 \pagebreak
 
@@ -106,6 +105,7 @@ Inside your ZIP archive, locate the \texttt{xl} folder, and within it, the \text
 </calcChain>}
 
 This file contains one entry for each cell with a formula in reverse execution order (i.e., the last-executed formula appears first). The important part is the \texttt{r} attribute of each \texttt{c} element, which indicates the cell or range over which the formula is applied.
+Other attributes such as \texttt{l} are typically not relevant though you can find their description \href{https://learn.microsoft.com/en-us/dotnet/api/documentformat.openxml.spreadsheet.calculationcell}{here}.
 
 In this example, the first formula entered by the user was in cell \texttt{B1}, then \texttt{B3}, then \texttt{B2},
 which clearly shows an ``out of order'' edit. In this case, it is likely that the user initially input the formulas in order then swapped the order of the 2nd and 3rd rows.
@@ -126,19 +126,30 @@ which, among other things, contains a \texttt{sheets} element whose children def
 ~~<sheet name="Other sheet" sheetId="2" r:id="rId2"/>\\
 </sheets>}
 
-Other attributes, like those related to sub-chains and parallel computations, are described in detail \href{https://learn.microsoft.com/en-us/dotnet/api/documentformat.openxml.spreadsheet.calculationcell}{here}.
+\subsection*{Spotting duplicated values}
 
-\subsection*{Spotting duplicate values}
-
-You can visually distinguish duplicate values in a range of cells by using Excel's conditional formatting options.
+Unexpected duplicate values in a data range can be an indication of data manipulation. You can visually distinguish duplicate values in a range of cells by using Excel's conditional formatting options.
 Specifically, under \emph{Home > Conditional Formatting > Highlight Cells Rules > Duplicate Values},
 you can pick the format of your choice for duplicated values.
 More details are available \href{https://support.microsoft.com/en-us/office/find-and-remove-duplicates-00e35bea-b46a-4d5d-b28e-66a552dc138d}{in the official Microsoft documentation}.
 
 You can also use Excel's \emph{Home > Conditional Formatting > Color Scales} feature to highlight
-duplicates of values in a specific columns (see \href{https://stackoverflow.com/a/53294784/3311770}{an example here}).
+duplicates of values in a specific columns (see \href{https://stackoverflow.com/a/53294784/3311770}{an example here}):
 
-\subsection*{Example: the ``Data Falsificada'' case}
+\hspace{0.1\linewidth}
+\begin{minipage}{0.3\linewidth}
+    \includegraphics[width=1\textwidth]{img/excel/dupes_menu.png}
+    %\captionsetup{justification=centering}
+    \textit{Selecting the ``highlight duplicate values'' option.}
+\end{minipage}
+\hspace{0.2\linewidth}
+\begin{minipage}{0.3\linewidth}
+    \includegraphics[width=1\textwidth]{img/excel/dupes_highlight.png}
+    %\captionsetup{justification=centering}
+    \textit{Duplicate values are then highlighted automatically.}
+\end{minipage}
+
+\subsection*{Example 1: The ``Data Falsificada'' case}
 
 On their blog \href{https://datacolada.org/}{``Data Colada''}, scientists Uri Simonsohn, Leif Nelson and Joe Simmons investigated a case of potential data manipulation in \href{https://doi.org/10.1073/pnas.1209746109}{a 2012 article} co-authored by prominent behavioral scientists.
 
@@ -149,6 +160,17 @@ were originally in a different treatment condition according to the calculation 
 
 The article in question had previously \href{https://doi.org/10.1073/pnas.2115397118}{been retracted in 2021} for evidence of data fabrication in another experiment it reported, also discovered by Data Colada.
 
+\subsection*{Example 2: Duplicate values in spider food restrictions}
+
+\href{http://dx.doi.org/10.1007/s00265-016-2184-1}{Lichtenstein et al. (2016)} report on the effect of food restrictions in spiders.
+However, after author Nicholas DiRienzo became suspicious of the raw data due to the last author's \href{https://www.science.org/content/article/university-investigation-found-prominent-spider-biologist-fabricated-falsified-data}{involvement} in other data fabrication cases, he inspected the data using Excel's duplicate value highlighting.
+As a result, DiRienzo \href{https://pubpeer.com/publications/1084FEB633DD7021D4D5A954AACFBA}{reported his concerns on PubPeer}, and after a discussion with the other authors, requested that the article be retracted. The article was \href{https://doi.org/10.1007/s00265-021-02998-2}{retracted} in 2021.
+
+\subsection*{Example 3: Blocks of duplicate values in wound closure tests}
+
+\href{https://doi.org/10.1186/s12884-025-07579-z}{Shalaby et al. (2025)} report on the efficacy and safety of wound closure methods in women undergoing cesarean section.
+However, as \href{https://pubpeer.com/publications/A8496BE1603BB027C3578E09EBAA67}{Jim G. Thornton points out on PubPeer}, an inspection of the data after highlighting duplicate values reveals strange patterns of repeated blocks of duplicate values. Ben W. J. Mol reports further duplicate blocks in another comment on the same PubPeer thread, alongside other statistical anomalies.
+
 \subsection*{Additional resources}
 
 \begin{itemize}
@@ -156,9 +178,5 @@ The article in question had previously \href{https://doi.org/10.1073/pnas.211539
     \item \href{https://github.com/markusenglund/copy-paste-detective}{Markus Englund's ``copy paste detective'' tool}. This tool finds similar blocks of data within Excel files. It requires \href{https://www.npmjs.com/}{npm} to run.
     \item \href{https://ntnuopen.ntnu.no/ntnu-xmlui/bitstream/handle/11250/198656/EDidriksen.pdf}{``Forensic Analysis of OOXML Documents'' (2014)}
 \end{itemize}
-
-\begin{comment}
-    For an example of similar blocks, see \href{https://pubpeer.com/publications/84805DBB9C70E24E7E6C4A80F60A43}{this PubPeer thread}.
-\end{comment}
 
 \end{document}

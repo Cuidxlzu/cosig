@@ -7,7 +7,7 @@
 
 However, investigating the integrity of the published scientific literature often requires domain-specific knowledge that not everyone will have. This open source project is a collection of guides written and maintained by publication integrity experts to distribute this domain-specific knowledge so that others can participate in post-publication peer review.
 
-COSIG currently hosts 30 guides and was last updated on 22 September 2025. Guides can be downloaded as [individual PDFs](https://osf.io/2kdez/files/osfstorage). A combined PDF with all guides included can be downloaded [here](https://osf.io/ynb8j).
+COSIG currently hosts 31 guides and was last updated on 25 September 2025. Guides can be downloaded as [individual PDFs](https://osf.io/2kdez/files/osfstorage). A combined PDF with all guides included can be downloaded [here](https://osf.io/ynb8j).
 
 Suggestions to improve COSIG can be submitted by opening an issue on [COSIG's GitHub repo](https://github.com/cosig-pppr/cosig/issues) or by emailing [admin@cosig.net](mailto:admin@cosig.net). Before contributing, read COSIG's [Contributing](https://github.com/cosig-pppr/cosig/blob/main/CONTRIBUTING.md) and [Code of Conduct](https://github.com/cosig-pppr/cosig/blob/main/CODE_OF_CONDUCT.md) pages.
 
@@ -29,6 +29,7 @@ Suggestions to improve COSIG can be submitted by opening an issue on [COSIG's Gi
 * [Software for image forensics](https://osf.io/g23pf)
 * [Citations](https://osf.io/5vknq)
 * [Citations to retracted publications](https://osf.io/9q3as)
+* [Data forensics using Microsoft Excel](https://osf.io/bz725)
 * [Formulaic research](https://osf.io/24dhu)
 * [Plagiarism of text](https://osf.io/ntcb4)
 * [Suspicious venues](https://osf.io/vrk7e)
