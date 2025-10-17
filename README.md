@@ -145,5 +145,5 @@ The following individuals have contributed to COSIG in some way:
 - Nicholas Ritchie [(ORCiD)](https://orcid.org/0000-0001-5734-5729)
 - Matt Spick [(ORCiD)](https://orcid.org/0000-0002-9417-6511)
 - Stefan Stender [(ORCiD)](https://orcid.org/0000-0003-0281-5900)
-- Corrado Viotti [(OCRiD)](https://orcid.org/0000-0002-0135-7533)
+- Corrado Viotti [(ORCiD)](https://orcid.org/0000-0002-0135-7533)
 - *Nerita vitiensis* (pseudonymous)
