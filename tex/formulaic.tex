@@ -4,7 +4,7 @@
 \flushleft\includegraphics[width=0.5\textwidth]{img/home/241017_final_logo_mockup.png}
 
 \cosigsection{Formulaic research}
-{17 October 2025}
+{14 November 2025}
 
 Many research fields have seen recent explosions in the number of articles performing what could be described as ``formulaic'' research. Such articles often follow a similar template and similar methods and are only differentiated by the exact variable, outcome, disease, subject, etc. that has been swapped in. This strain of research has been described as ``cut-and-paste research'' and \href{https://doi.org/10.1126/science.zgawnij}{``research Mad Libs\textregistered''}. 
 
@@ -31,6 +31,7 @@ When evaluating any manuscript, some helpful questions to ask include:
     \item \href{https://doi.org/10.1186/s12944-024-02284-w}{``Reclaiming mendelian randomization from the deluge of papers and misleading findings'' (2024)}
     \item \href{https://doi.org/10.1136/egastro-2025-100187}{``Attention to the misuse of Mendelian randomisation in medical research'' (2025)}
     \item \href{https://doi.org/10.1016/S2213-8587(23)00348-0}{``Mendelian randomisation at 20 years: how can it avoid hubris, while achieving more?'' (2024)}
+    \item \href{https://doi.org/10.1007/s10654-025-01317-7}{``The rapid growth in Mendelian randomization studies'' (2025)}
 \end{itemize}
 
 \subsection*{Example 2: Associative research using National Health and Nutrition Examination Survey (NHANES) data}
@@ -46,9 +47,44 @@ Many of these studies report on specious hypotheses with little statistical supp
     \item \href{https://doi.org/10.1371/journal.pbio.3003152}{``Explosion of formulaic research articles, including inappropriate study designs and false discoveries, based on the NHANES US national health database'' (2025)}
     \item \href{https://doi.org/10.3897/ese.2025.e165043}{``Meeting the challenges posed by mass-produced manuscripts and click-data science'' (2025)}
     \item \href{https://doi.org/10.1101/2025.09.09.25335401}{``Dramatic increases in redundant publications in the Generative AI era'' (2025)}
+    \item \href{https://doi.org/10.1126/science.z6eukgo}{``Journals and publishers crack down on research from open health data sets'' (2025)}
 \end{itemize}
 
-\subsection*{Example 3: Bibliometric analyses}
+\subsection*{Example 3: Pharmacovigilance signal detection studies using FDA Adverse Event Reporting System (FAERS) data}
+
+The \href{https://www.fda.gov/drugs/fdas-adverse-event-reporting-system-faers/fda-adverse-event-reporting-system-faers-public-dashboard}{FDA Adverse Events Reporting System (FAERS)} database contains reports of \href{https://en.wikipedia.org/wiki/Adverse_event}{adverse events} (termed Individual Case Safety Reports, ICSRs), medication errors and product quality problems submitted to the \href{https://fda.gov}{United States Food and Drug Administration (FDA)} for human drugs. As of 2025, FAERS includes more than 35 million reports, originating mainly from the pharmaceutical industry, patients and physicians. Pharmacovigilance researchers can leverage this data to suggest new causal associations between an intervention (e.g., taking a specific pain-relieving medication, taking a combination of medications) and an adverse event (e.g., heart palpitations, weight loss).
+
+Given the size of the data, pharmaceutical companies, regulatory agencies and pharmacovigilance researchers typically rely on statistical data mining algorithms to aid this process. The most common method for data mining is \href{https://doi.org/10.1007/s40264-024-01421-9}{disproportionality analysis}, which involves identifying drug-event combinations that occur more frequently than expected by chance. Statistics reported in disproportionality analyses include the Proportional Reporting Ratio (PRR), Reporting Odds Ratio (ROR) and the Empirical Bayes Geometric Mean (EBGM, an output of the Multi-item Gamma Poisson Shrinker algorithm, MGPS).
+
+ICSRs and disproportionality analyses using them are subject to inherent limitations:
+\begin{itemize}
+    \setlength\itemsep{-0.5em}
+    \item Reports are made voluntarily and various external factors can influence the likelihood of a report actually being submitted to FAERS.
+    \item Drug-event associations are not certain and there is often insufficient information included in ICSRs to rule out other factors involved each case.
+    \item FAERS does not provide denominators (e.g., the number of patients exposed to a drug or experiencing an adverse event). Note that the total number of adverse events of any kind associated with a drug is often used as a proxy for exposure in disproportionality analyses.
+    \item Disproportionality measures are subject to \href{https://doi.org/10.1007/s40264-013-0063-5}{competition bias}---an over-reporting of cases for a particular event or drug can artificially lower disproportionality measures for other events and drugs.
+\end{itemize}
+Disproportionality methods do not allow researchers to estimate incidence and infer causality. This prevents researchers from ranking drugs according to their risk, especially when comparing medications with heterogeneous clinical uses and time on the market. As a hypothesis-generating study design, disproportionality analysis can only detect the so-called ``signal of disproportionate reporting'' (SDR). The magnitude of this signal does not necessarily correlate with the strength of the association or its likelihood of representing a real causal relationship.
+
+Since the mid-2000s, the FDA has provided public access to FAERS data through the \href{https://fis.fda.gov/sense/app/95239e26-e0be-42d9-a960-9a5f7f1c25ee/sheet/7a47a261-d58b-4203-a8aa-6d3021737452/state/analysis}{FAERS Public Dashboard}, the \href{https://open.fda.gov/}{OpenFDA API} and \href{https://www.fda.gov/drugs/fdas-adverse-event-reporting-system-faers/fda-adverse-event-reporting-system-faers-latest-quarterly-data-files}{quarterly data reports}. In the last few years, FAERS data has frequently been used to publish formulaic research articles featuring disproportionality analyses. These articles are generally not well-motivated, apply multiple generic methods (leading to redundant results) and interpret results in an nonspecific, standardized format overlooking inherent and study-specific limitations.
+
+In one such study, \href{https://doi.org/10.1111/andr.13533}{Wang et al. (2023)} perform a disproportionality analysis focused on identifying adverse events associated with sildenafil, a widely-used drug for which adverse events are largely well-understood. They apply four different algorithms to compute SDRs even though these algorithms are heavily inter-dependent and render very similar results to one another. The authors find that sildenafil has an ``unexpected'' association with pulmonary hypertension. However, sildenafil is frequently prescribed to treat pulmonary hypertension. Other events for which the authors find an association include malignant melanoma and aortic dissection rupture, conditions which are more common in the older patient population that takes sildenafil. The authors do not adjust for age in their analysis.
+
+These articles often use similar formatting and style (same figures, methods and tables) and contain obvious errors in technical terminology. For example, disproportionality analysis methods like ``Bayesian confidence propagation neural network'' are frequently reported as ``Bayesian confidence interval progressive neural network'', ``Bayesian belief propagation neural network'' and ``Bayesian configuration promotion neural network''. 
+
+\subsubsection*{Additional resources}
+
+\begin{itemize}
+    \setlength\itemsep{-0.5em}
+    \item \href{https://doi.org/10.5281/zenodo.17116884}{``The Rising Misuse of Pharmacovigilance Reporting Systems: A Threat to Evidence-Based Medicine'' (2025)}
+    \item \href{https://doi.org/10.1002/cpt.3701}{``FDA Adverse Event Reporting System (FAERS) Essentials: A Guide to Understanding, Applying, and Interpreting Adverse Event Data Reported to FAERS'' (2025)}
+    \item \href{https://doi.org/10.3389/fdsfr.2023.1323057}{``Conducting and interpreting disproportionality analyses derived from spontaneous reporting systems'' (2024)}
+    \item \href{https://doi.org/10.1007/s40264-024-01423-7}{``The REporting of A Disproportionality Analysis for DrUg Safety Signal Detection Using Individual Case Safety Reports in PharmacoVigilance (READUS-PV): Explanation and Elaboration'' (2024)}
+    \item \href{https://doi.org/10.1007/s40264-024-01421-9}{``The Reporting of a Disproportionality Analysis for Drug Safety Signal Detection Using Individual Case Safety Reports in PharmacoVigilance (READUS-PV): Development and Statement.'' (2024)}
+\end{itemize}
+
+
+\subsection*{Example 4: Bibliometric analyses}
 
 \href{https://en.wikipedia.org/wiki/Bibliometrics}{Bibliometrics/scientometrics} is the quantitative study of indicators of knowledge transfer and development. One such indicator of knowledge transfer is citations between scientific articles. The number of citations an article has received is often used as a heuristic of that article's importance or quality and is a common analytical variable in bibliometric analyses. While high-quality \href{https://en.wikipedia.org/wiki/Metascience}{metascientific} research routinely uses such heuristics, the accessibility of bibliometric data through services like \href{https://scopus.com}{Scopus} and \href{/https://webofscience.com/}{Web of Science} makes it an easy target for low-quality, formulaic research articles. 
 
@@ -63,11 +99,11 @@ Formulaic metascience articles can also report on author characteristics in any 
     \item \href{https://reeserichardson.blog/2024/12/30/recent-encounters-with-atom-thin-salami-slicing/}{``Recent encounters with atom-thin salami slicing: Case \#2: Same paper mill, same procedure, different subject, different authors'' (2024)}
 \end{itemize}
 
-\subsection*{Example 4: Querying a large language model}
+\subsection*{Example 5: Querying a large language model}
 
 Since the public release of \href{https://en.wikipedia.org/wiki/ChatGPT}{ChatGPT} in 2022, thousands of \href{https://scholar.google.com/scholar?start=10&q="conversation+with+chatgpt"+OR+"interview+with+chatgpt"&hl=en}{``conversations'' and ``interviews'' with ChatGPT} have been published in peer-reviewed and non-peer-reviewed outlets. These commentary pieces can be written with little effort on practically any scientific topic. Many are severely limited in scope, typically only sharing a single chain of queries and outputs on a single topic, and do little to interrogate the veracity of the large language model's responses to the user's queries. Moreover, because the companies that develop these models publicly release new versions and quietly make updates between official versions, these conversations are typically not reproducible and any insights gained from them quickly obsolesce.
 
-\subsection*{Example 5: Non-coding RNAs}
+\subsection*{Example 6: Non-coding RNAs}
 
 Many suspected paper mill products, especially those in the field of \href{https://en.wikipedia.org/wiki/Non-coding_RNA}{non-coding RNAs} and disease, resemble variations on a theme. Plausible-sounding papers can be generated by combining just about any non-coding gene with any human disease and any molecular pathway. This pattern can even be observed in article titles alone, as noted for a collection of papers dubbed the \href{https://scienceintegritydigest.com/2020/02/21/the-tadpole-paper-mill/}{``Tadpole paper mill''}.
 
@@ -107,7 +143,7 @@ These articles often feature strikingly similar templates, images and data re-us
 
 \end{itemize}
 
-\subsection*{Example 6: Metaphor-based metaheuristics}
+\subsection*{Example 7: Metaphor-based metaheuristics}
 
 \href{https://en.wikipedia.org/wiki/Metaheuristic}{Metaheuristics} are conceptual frameworks for developing optimization and search algorithms. Many metaheuristics are inspired by natural phenomena and processes. For instance, one of the most popularly-applied metaheuristic approaches is \href{https://en.wikipedia.org/wiki/Simulated_annealing}{simulated annealing}, a stochastic algorithm inspired by \href{https://en.wikipedia.org/wiki/Annealing_(materials_science)}{metallurgical annealing}. Other nature-inspired metaheuristics that have proven to be both popular and useful include \href{https://en.wikipedia.org/wiki/Ant_colony_optimization_algorithms}{ant colony optimization} and \href{https://en.wikipedia.org/wiki/Genetic_algorithm}{genetic algorithms}.
 

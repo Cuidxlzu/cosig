@@ -7,7 +7,7 @@
 
 However, investigating the integrity of the published scientific literature often requires domain-specific knowledge that not everyone will have. This open source project is a collection of guides written and maintained by publication integrity experts to distribute this domain-specific knowledge so that others can participate in post-publication peer review.
 
-COSIG currently hosts 31 guides and was last updated on 11 November 2025. Guides can be downloaded as [individual PDFs](https://osf.io/2kdez/files). A combined PDF with all guides included can be downloaded [here](https://osf.io/ynb8j).
+COSIG currently hosts 31 guides and was last updated on 14 November 2025. Guides can be downloaded as [individual PDFs](https://osf.io/2kdez/files). A combined PDF with all guides included can be downloaded [here](https://osf.io/ynb8j).
 
 Suggestions to improve COSIG can be submitted by opening an issue on [COSIG's GitHub repo](https://github.com/cosig-pppr/cosig/issues) or by emailing [admin@cosig.net](mailto:admin@cosig.net). Before contributing, read COSIG's [Contributing](https://github.com/cosig-pppr/cosig/blob/main/CONTRIBUTING.md) and [Code of Conduct](https://github.com/cosig-pppr/cosig/blob/main/CODE_OF_CONDUCT.md) pages.
 
@@ -138,6 +138,7 @@ The following individuals have contributed to COSIG in some way:
 - Jana Christopher [(ORCiD)](https://orcid.org/0000-0002-2699-3368)
 - M.V. Dougherty [(ORCiD)](https://orcid.org/0000-0002-8731-6045)
 - Ian Hussey [(ORCiD)](https://orcid.org/0000-0001-8906-7559)
+- Charles Khouri [(ORCiD)](https://orcid.org/0000-0002-8427-8573)
 - Yagmur Ozturk [(ORCiD)](https://orcid.org/0000-0002-2843-8990) (**Maintainer**)
 - Kevin Patrick [(ORCiD)](https://orcid.org/0009-0001-7491-9242)
 - Solal Pirelli [(ORCiD)](https://orcid.org/0009-0003-4336-1316) (**Maintainer**)
