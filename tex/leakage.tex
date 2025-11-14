@@ -4,7 +4,7 @@
 \flushleft\includegraphics[width=0.5\textwidth]{img/home/241017_final_logo_mockup.png}
 
 \cosigsection{Data leakage}
-{2 July 2025}
+{14 November 2025}
 
 Machine learning and other advanced statistical methods employ powerful algorithms that can fit too closely to one dataset but fail to generalize to new, unseen data. To mitigate against this, statisticians and modelers often split their data into a training set, on which the model is developed, and a test set, which is held back and later used to evaluated the model's performance. This approach gives a picture of how well the model might perform in practice on unseen data not available during training.
 
@@ -24,7 +24,7 @@ Sometimes, features are included in a model's input that are either direct proxi
 
 \subsection*{Repeated measurements leakage}
 
-In biological assays, individuals are often measured multiple times. These repeated measurements, known as technical replicates, should be averaged rather than treated as independent observations. Researchers may be tempted to treat technical replicates independently, as this superficially increases sample size and statistical power. However, these observations are not independent, and including them as such violates core assumptions of many statistical tests. This practice is often referred to a \href{https://en.wikipedia.org/wiki/Pseudoreplication}{``pseudoreplication''}.
+In biological assays, individuals are often measured multiple times. These repeated measurements, known as technical replicates, should be averaged rather than treated as independent observations. Researchers may be tempted to treat technical replicates independently, as this superficially increases sample size and statistical power. However, these observations are not independent, and including them as such violates core assumptions of many statistical tests. This practice is often referred to as \href{https://en.wikipedia.org/wiki/Pseudoreplication}{``pseudoreplication''}.
 
 Worse, if one replicate (e.g., ``Sam One'') is in the training set and another from the same source (e.g., ``Sam Two'') is in the test set, the model gains an unfair advantage; it has effectively already ``seen'' this element of the test data since the two replicates are highly similar. This can also occur when data are inadvertently duplicated (e.g., ``Sam One'' is in both the training and test sets).
 
