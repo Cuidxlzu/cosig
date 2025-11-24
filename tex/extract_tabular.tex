@@ -1,0 +1,115 @@
+\documentclass[letterpaper, 12pt]{article}
+\input{tex/_preamble}
+\begin{document}
+\flushleft\includegraphics[width=0.5\textwidth]{img/home/241017_final_logo_mockup.png}
+
+\cosigsection{Extracting tabular data from an article}{24 November 2025}
+
+Results are often reported in tables in the main text of a scientific article. To better examine the content of these tables, it is often useful to transfer their content to a spreadsheet file format (e.g., \texttt{.csv} or \texttt{.xlsx}) that can be opened in a software like Microsoft Excel (see COSIG's \href{https://osf.io/bz725}{entry on data forensics using Microsoft Excel}). Doing this manually can be time-consuming. This guide covers several options for automatically transferring tabular data from an article into a spreadsheet.
+
+Each method described here can introduce extraneous rows and columns. Always make sure that the data has been extracted correctly before proceeding. This guide will demonstrate each method using tables from \href{https://doi.org/10.1038/s41586-025-09720-6}{Wainschtein et al. (2025)}.
+
+\begin{figure}[h!tbp]
+    \centering
+    \includegraphics[width=0.9\textwidth]{img/extract_tabular/wainschtein_table_1_online.png}
+    \caption*{How Table 1 from Wainschtein et al. appears in the \href{https://www.nature.com/articles/s41586-025-09720-6/tables/1}{online version} of the article.}
+\end{figure}
+
+\begin{figure}[h!tbp]
+    \centering
+    \includegraphics[width=0.9\textwidth]{img/extract_tabular/wainschtein_table_1_pdf.png}
+    \caption*{How Table 1 from Wainschtein et al. appears in the \href{https://www.nature.com/articles/s41586-025-09720-6.pdf}{PDF version} of the article.}
+\end{figure}
+
+\subsection*{Excel Power Query (``Get \& Transform'')}
+
+\href{https://support.microsoft.com/en-us/office/about-power-query-in-excel-7104fbee-9e62-4cb9-a02e-5bfb1a6c536a}{Power Query (now called ``Get \& Transform'')} is a feature in Microsoft Excel that allows tabular data stored in a variety of formats to be imported into Excel. Menu locations for Power Query features described here are current for Microsoft 365 Version 2510 (20 November 2025, see \href{https://learn.microsoft.com/en-us/officeupdates/current-channel}{version history}).
+
+\subsubsection*{Power Query from an article's webpage}
+
+In Excel's toolbar, navigate to Data > Get \& Transform Data > From Web. A dialogue box will open and ask for a URL. Insert the URL of the article or table. Note that some articles do not display a table's content on the article's main webpage---for instance, the content of Table 1 in Wainschtein et al. is not available on the article's main webpage (URL: \href{https://www.nature.com/articles/s41586-025-09720-6}{https://www.nature.com/articles/s41586-025-09720-6}), but is accessible if you click ``Full Size Table'' under the Table 1 heading (URL: \href{https://www.nature.com/articles/s41586-025-09720-6/tables/1}{https://www.nature.com/articles/s41586-025-09720-6/tables/1}). This method may not work if the table's content is stored in a pop-up window.
+
+After inserting the appropriate URL, click ``OK''. Excel will connect to the webpage (which usually take a few seconds) and then display all extractable tables on the webpage in a window titled ``Navigator''. Select the appropriate table (as shown in the preview window) and click ``Load''.
+
+\begin{figure}[h!tbp]
+    \centering
+    \includegraphics[width=0.8\textwidth]{img/extract_tabular/power_query_from_web.PNG}
+    \caption*{The Navigator window when extracting tabular data from a webpage. In this case, the appropriate table is under HTML Tables > Table 1.}
+\end{figure}
+
+\pagebreak
+
+After a brief delay (usually a few seconds), Excel will display the extracted data in a new sheet.
+
+\begin{figure}[h!tbp]
+    \centering
+    \includegraphics[width=0.8\textwidth]{img/extract_tabular/power_query_from_web_loaded.PNG}
+    \caption*{Table 1 data loaded from the Table 1 webpage of Wainschtein et al.}
+\end{figure}
+
+\subsubsection*{Power Query from an article's PDF}
+
+Ensure that the tabular data that you want to extract is actually present in the article's PDF (some publishers do not include large tables in the PDF version of an article). In Excel's toolbar, navigate to Data > Get \& Transform Data > Get Data >  From File > From PDF. Excel will prompt you to select the article's PDF. After a brief delay (usually a few seconds), Excel will display all extractable tables in the PDF in a window titled ``Navigator''. Select the appropriate table (as shown in the preview window) and click ``Load''. 
+
+\begin{figure}[h!tbp]
+    \centering
+    \includegraphics[width=0.8\textwidth]{img/extract_tabular/power_query_from_pdf.PNG}
+    \caption*{The Navigator window when extracting tabular data from a PDF. Note that the title of the table as it appears in the Navigator menu will not necessarily match how it appears in the PDF. In this case, the complete Table 1 is available under s41586-025-09720-6 > Table 020 (Page 4).}
+\end{figure}
+
+Note that some tables may be split over multiple PDF pages and will require you to repeat this procedure for each part of the table.
+
+\begin{figure}[h!tbp]
+    \centering
+    \includegraphics[width=0.8\textwidth]{img/extract_tabular/power_query_from_pdf_loaded.PNG}
+    \caption*{Table 1 data loaded from the PDF of Wainschtein et al. Note that there are multiple empty columns and that the table headers are not properly extracted.}
+\end{figure}
+
+\subsubsection*{Power Query from a screenshot}
+
+Take a high-resolution screenshot of the entire table of interest. In Wainschtein et al., Table 1 is far too large to be extracted accurately, so we will use Table 2 instead.
+
+\begin{figure}[h!tbp]
+    \centering
+    \includegraphics[width=0.9\textwidth]{img/extract_tabular/wainschtein_table_2_online.png}
+    \caption*{A screenshot of Table 2 from Wainschtein et al.}
+\end{figure}
+
+In Excel's toolbar, navigate to Data > Get \& Transform Data > From Picture > Picture from File. Select the image file containing your screenshot. A window titled ``Data from Picture'' will open. After the process is complete, this window will display the extracted data and prompt the user to review the results for errors and correct them.
+
+\pagebreak
+
+\begin{figure}[h!tbp]
+    \centering
+    \includegraphics[width=0.9\textwidth]{img/extract_tabular/power_query_from_screenshot_table_2.PNG}
+    \caption*{The Data from Picture window when extracting tabular data from a screenshot. The window will highlight table cells with likely extraction errors and prompt the user to review them (click ``Review''). In this case, some cells contain extract commas and periods. The lower-resolution the screenshot, the more errors are expected.}
+\end{figure}
+
+Once you have finished reviewing potential errors, click ``Insert data'' and Excel will insert the extracted data in the last selected cell.
+
+This method can also be used to extract tabular data stored in an article's figures (this is a common way of reporting \href{https://osf.io/st8up}{elemental composition tables}, for instance).
+
+\pagebreak
+
+\subsection*{Tabula}
+
+\href{https://tabula.technology/}{Tabula} is a free and open source tool for extracting tables from PDF files. Tabula is available for Windows, Mac and Linux. Instructions for downloading, installing and launching Tabula are available on the \href{https://tabula.technology/}{Tabula website}.
+
+After opening Tabula, import your PDF(s) of interest. You can either manually or automatically select your tables of interest. Note that Tabula can only extract tables that contain embedded text (i.e., Tabula will not extract image-based tables).
+
+\begin{figure}[h!tbp]
+    \centering
+    \includegraphics[width=0.9\textwidth]{img/extract_tabular/tabula_select.PNG}
+    \caption*{Manually selecting Table 1 from the PDF of Wainschtein et al. in Tabula.}
+\end{figure}
+
+Once you have isolated your table of interest, click ``Preview \& Export Extracted Data''. Tabula allows you to export this data in \texttt{.csv} format, \texttt{.tsv} format, \texttt{.json} format, a \texttt{.zip} archive of \texttt{.csv} files (if you have extracted multiple tables or a table spanning multiple pages) or as a \texttt{.sh} script.
+
+\begin{figure}[h!tbp]
+    \centering
+    \includegraphics[width=0.9\textwidth]{img/extract_tabular/tabula_extracted.PNG}
+    \caption*{Data extracted from Table 1 from the PDF of Wainschtein et al. in Tabula. Note that there are multiple
+empty columns and that the table headers are not properly extracted.}
+\end{figure}
+
+\end{document}
