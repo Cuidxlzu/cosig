@@ -23,6 +23,7 @@ Suggestions to improve COSIG can be submitted by opening an issue on [COSIG's Gi
 ### General guides
 
 * [Extracting vector graphics from a PDF](https://osf.io/n8fvw)
+* [Extract tabular data from an article](https://osf.io/kbhp3)
 * [The vertical line test](https://osf.io/e3nfr)
 * [Image duplication](https://osf.io/547re)
 * [Image compression artifacts](https://osf.io/e5vzr)
