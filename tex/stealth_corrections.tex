@@ -1,0 +1,101 @@
+\documentclass[letterpaper, 12pt]{article}
+\input{tex/_preamble}
+\begin{document}
+\flushleft\includegraphics[width=0.5\textwidth]{img/home/241017_final_logo_mockup.png}
+
+\cosigsection{Stealth corrections}{17 February 2026}
+
+\href{https://doi.org/10.1002/leap.1660}{Aquarius et al. (2025)} describe a stealth correction as ``at least one post-publication change made to a scientific article, without providing a correction note or any other indicator that the publication was temporarily or permanently altered''. It is standard practice in scholarly publishing to document any changes that are made to an article after publication, creating a transparent and permanent record of what changed and why for future reference. Stealth corrections subvert this expectation and can be used to hide improprieties in an article (e.g., by silently replacing figures with evidence of image manipulation).
+
+Stealth corrections are difficult to track down by their nature. Thus, it can be challenging for an outside observer to successfully record them when they have occurred. Aquarius et al. maintain an updating spreadsheet of confirmed cases of stealth correction \href{https://docs.google.com/spreadsheets/d/1vmoHAQf1TY6y6lwc8ZI8BxPplfgdeIyGSTauGf3Si2c/edit?usp=sharing}{here}.
+
+\subsection*{Types of stealth corrections}
+
+Aquarius et al. identify four different categories of stealth corrections based on which information was altered, as described below. Note that this is not a comprehensive list of changes that might be considered a stealth correction. 
+
+\subsubsection*{Changes in author information}
+%%this is..
+\begin{itemize}
+    \setlength\itemsep{-0.5em}
+    \item Changes in authors (\href{https://pubpeer.com/publications/3D64DDE95DB292E7D2D798722D99C3#3}{example})
+    \item Changes in author affiliation (\href{https://pubpeer.com/publications/EB0331DBF5F262125FEC913C1F48A8#2}{example})
+\end{itemize}
+
+\subsubsection*{Changes in content}
+\begin{itemize}
+    \setlength\itemsep{-0.5em}
+    \item Changes in figures (\href{https://pubpeer.com/publications/8A0A30197C521C60F66C30EE04ED28#3}{example})
+    \item Changes in data (\href{https://pubpeer.com/publications/DF35D0840056D8CD080CC36DA2609E#2}{example})
+    \item Changes in text (\href{https://pubpeer.com/publications/6A8918534C304C6BD58F51DC126838#3}{example})
+\end{itemize}
+
+\subsubsection*{Changes in the record of the editorial process}
+\begin{itemize}
+    \setlength\itemsep{-0.5em}
+    \item Changes in editor (\href{https://pubpeer.com/publications/B6D6D44CCE307C39E1878FE2563B32#3}{example})
+    % \item Changes in submission, acceptance or publication dates (not observed yet) 
+    \item Changes in peer-review reports (\href{https://pubpeer.com/publications/B23B7D3A9182DC56825D4EE77FDD57#2}{example})
+    \item Changes in volume or issue (\href{https://pubpeer.com/publications/E709DA77E2AFA89FA2222039B667E8#3}{example})
+\end{itemize}
+
+\subsubsection*{Changes in additional information}
+\begin{itemize}
+    \setlength\itemsep{-0.5em}
+    \item Changes in ethics statements (\href{https://pubpeer.com/publications/A79BA92C456051E62C1FAB00E2B077#4}{example})
+    % \item Changes in conflict of interest statements (not observed yet)
+    % \item Changes in funding information (not observed yet)
+    \item Changes in the front matter of conference proceedings (\href{https://pubpeer.com/publications/69ADFB2B2293E4DDEC736C71CF6B6F#5}{example})
+\end{itemize}
+
+\subsection*{How to make a record of a stealth correction}
+
+If you happen to identify a stealth correction, you should record it (otherwise, there is no record that published information has been altered at all):
+
+\begin{enumerate}
+    \setlength\itemsep{-0.5em}
+    \item Try to find the original form of the information that has been silently changed. Verify that the previous version is actually different from the current version. Check if:
+    \begin{enumerate}
+        \setlength\itemsep{-0.5em}
+        \item A screenshot of the previous version of the information posted on PubPeer. 
+        \item The article's webpage has been archived using the \href{https://web.archive.org/}{Wayback Machine} or \href{https://archive.today/}{other archives}.
+        \item The previous version of the changed file (PDF, DOCX, XLSX, etc.) was previously downloaded and is still accessible.
+        \item The previous version of the changed file has been stored on a static platform like \href{https://www.researchgate.net/}{ResearchGate} or a university repository.
+    \end{enumerate}
+    
+    \item Immediately download the new form of the information that has been changed. Screenshots should clearly show what change has been made, using highlights or other annotations. Document the location of the stealth change within the document using page, column, section, paragraph, and/or line numbering.
+    
+    \item Post this information on PubPeer so it is publicly available. Include your best estimate of the date (month, day, and year) on which the change occurred. Provide screenshots of metadata or hyperlinks to the Wayback Machine or other archives' snapshots as appropriate.
+    
+    \item Use the Wayback Machine to try to register the current form of the information, as it might be subject to additional stealth corrections in the future.
+    
+    \item Report the stealth correction to the publisher and include the hyperlink to the associated PubPeer comment (see COSIG's \href{https://osf.io/4edk2}{entry on reporting integrity issues to publishers}). Consider asking the publisher to issue a formal correction notice and/or publicly reply to the PubPeer comment.
+
+    \item Consider reaching out to \href{https://doi.org/10.1002/leap.1660}{Aquarius et al.} so that they can record the stealth correction on their \href{https://docs.google.com/spreadsheets/d/1vmoHAQf1TY6y6lwc8ZI8BxPplfgdeIyGSTauGf3Si2c/edit?usp=sharing}{updating spreadsheet}.
+    
+\end{enumerate}
+
+\subsection*{A note on accurately logging dates}
+
+It is inherently difficult to identify the exact date on which a stealth correction occurred.
+
+The best method for determining the date of a stealth correction is by extracting the date of modification from the metadata embedded in the PDF file. Metadata can be accessed via Document Properties in \href{https://www.adobe.com/acrobat/pdf-reader.html}{Adobe Acrobat Reader} (\href{}{example}) or using software such as \href{https://exiftool.org/}{ExifTool}. Note that metadata can be manually altered and should not be considered definitive proof of the date of alteration.
+    
+If the article has been archived on the Wayback Machine or another archive, the date of modification will either be:
+\begin{enumerate}
+        \setlength\itemsep{-0.5em}
+        \item Between the article's date of publication and the first available snapshot in which the change is visible, or
+        \item Between the date of the last snapshot in which the change is not visible and the date of the first snapshot in which the change is visible.
+    \end{enumerate}
+    
+If all else fails, document the date on which you first noticed the change.
+
+\subsection*{Additional resources}
+
+\begin{itemize}
+    \setlength\itemsep{-0.5em}
+    \item \href{https://doi.org/10.1002/leap.1660}{``The Existence of Stealth Corrections in Scientific Literature—A Threat to Scientific Integrity'' (2025)}
+
+\end{itemize}
+
+
+\end{document}

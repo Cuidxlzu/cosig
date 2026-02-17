@@ -35,6 +35,7 @@ Suggestions to improve COSIG can be submitted by opening an issue on [COSIG's Gi
 * [Plagiarism of text](https://osf.io/ntcb4)
 * [Suspicious venues](https://osf.io/vrk7e)
 * [Ethical approval of human subjects research](https://osf.io/6mwhe)
+* [Stealth corrections](https://osf.io/34nj5)
 
 ### Biology and medicine
 
@@ -138,6 +139,7 @@ The following individuals have contributed to COSIG in some way:
 - Guillaume Cabanac [(ORCiD)](https://orcid.org/0000-0003-3060-6241)
 - Jana Christopher [(ORCiD)](https://orcid.org/0000-0002-2699-3368)
 - M.V. Dougherty [(ORCiD)](https://orcid.org/0000-0002-8731-6045)
+- Alex Glynn [(ORCiD)](https://orcid.org/0000-0002-3027-7276)
 - Ian Hussey [(ORCiD)](https://orcid.org/0000-0001-8906-7559)
 - Charles Khouri [(ORCiD)](https://orcid.org/0000-0002-8427-8573)
 - Yagmur Ozturk [(ORCiD)](https://orcid.org/0000-0002-2843-8990) (**Maintainer**)
