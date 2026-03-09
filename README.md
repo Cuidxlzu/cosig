@@ -136,6 +136,7 @@ The following individuals have contributed to COSIG in some way:
 - Lonni Besançon [(ORCiD)](https://orcid.org/0000-0002-7207-1276)
 - Elisabeth Bik [(ORCiD)](https://orcid.org/0000-0001-5477-0324)
 - David Bimler [(ORCiD)](https://orcid.org/0000-0003-2405-0697)
+- Dorothy Bishop [(ORCiD)](https://orcid.org/0000-0002-2448-4033)
 - Jennifer Byrne [(ORCiD)](https://orcid.org/0000-0002-8923-0587)
 - Guillaume Cabanac [(ORCiD)](https://orcid.org/0000-0003-3060-6241)
 - Jana Christopher [(ORCiD)](https://orcid.org/0000-0002-2699-3368)
