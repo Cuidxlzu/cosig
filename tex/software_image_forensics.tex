@@ -4,7 +4,7 @@
 \flushleft\includegraphics[width=0.5\textwidth]{img/home/241017_final_logo_mockup.png}
 
 \cosigsection{Software for image forensics}
-{22 May 2025}
+{9 March 2026}
 
 Publication integrity issues often arise from image integrity issues. Performing image forensics is often very useful for taking part in post-publication peer review, especially in fields that frequently use images in scientific articles (e.g., biomedicine).
 
@@ -15,7 +15,7 @@ Here are some factors to consider when using these tools:
 \begin{itemize}
     \setlength\itemsep{-0.5em}
     \item \textbf{There can be false positives.} A tool may flag image features that, upon closer manual examination, do not actually indicate any image integrity issues. Common acceptable instances of image duplication include the re-use of control Western blot panels or microscopy images (provided they are intended to represent the same experimental conditions) and control microscopy images. Images might also appear similar because they represent a time series and were taken in quick succession of one another.
-    \item \textbf{There can be false negatives.} A tool may not flag image features that are indicative of image integrity issues. For instance, software for detecting image duplications within a figure may miss some duplications that are visible by eye. Several tools are prone to missing image duplications in low-contrast images.
+    \item \textbf{There can be false negatives.} A tool may not flag image features that are indicative of image integrity issues. For instance, software for detecting image duplications within a figure may miss some duplications that are visible by eye. Several tools are prone to missing image duplications in low-contrast images. It is also possible that a tool will flag some duplications while missing others in the same image.
     \item \textbf{Tools may not examine all data types.} There can be entire categories of data (including image data) that have been explicitly excluded by the programmers of a tool because they are not yet comfortable with the sensitivity/specificity of their tool for that data type.
     \item \textbf{Analysis may not be reproducible.} Some of these services and software are updated frequently and the current version of a tool may not yield the same results as a previous version.
     \item \textbf{Analysis of the same images in a different format may yield different results.} For example, if one uploads an entire PDF to a duplication detection tool, the tool may yield different results than if individual images are uploaded, even if the individual images and those in the PDF appear identical by eye. Figures in published articles will often be available in multiple resolutions, which can yield differing results. When performing image forensics, it is always preferable to work with the original, full-resolution, uncropped images provided by a study's authors. Images embedded in a PDF might be of higher or lower resolution than the individual images available for download from the publisher’s website. In some cases, if available, the \href{https://pmc.ncbi.nlm.nih.gov/}{PubMed Central} version of a paper offers much higher-resolution images than those found in the publisher’s versions. 

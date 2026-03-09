@@ -7,7 +7,7 @@
 
 However, investigating the integrity of the published scientific literature often requires domain-specific knowledge that not everyone will have. This open source project is a collection of guides written and maintained by publication integrity experts to distribute this domain-specific knowledge so that others can participate in post-publication peer review.
 
-COSIG currently hosts 32 guides and was last updated on 24 November 2025. Guides can be downloaded as [individual PDFs](https://osf.io/2kdez/files). A combined PDF with all guides included can be downloaded [here](https://osf.io/ynb8j).
+COSIG currently hosts 34 guides and was last updated on 9 March 2026. Guides can be downloaded as [individual PDFs](https://osf.io/2kdez/files). A combined PDF with all guides included can be downloaded [here](https://osf.io/ynb8j).
 
 Suggestions to improve COSIG can be submitted by opening an issue on [COSIG's GitHub repo](https://github.com/cosig-pppr/cosig/issues) or by emailing [admin@cosig.net](mailto:admin@cosig.net). Before contributing, read COSIG's [Contributing](https://github.com/cosig-pppr/cosig/blob/main/CONTRIBUTING.md) and [Code of Conduct](https://github.com/cosig-pppr/cosig/blob/main/CODE_OF_CONDUCT.md) pages.
 
@@ -23,7 +23,7 @@ Suggestions to improve COSIG can be submitted by opening an issue on [COSIG's Gi
 ### General guides
 
 * [Extracting vector graphics from a PDF](https://osf.io/n8fvw)
-* [Extract tabular data from an article](https://osf.io/kbhp3)
+* [Extracting tabular data from an article](https://osf.io/kbhp3)
 * [The vertical line test](https://osf.io/e3nfr)
 * [Image duplication](https://osf.io/547re)
 * [Image compression artifacts](https://osf.io/e5vzr)
@@ -60,6 +60,7 @@ Suggestions to improve COSIG can be submitted by opening an issue on [COSIG's Gi
 * [Standard deviation versus standard error](https://osf.io/hp4yd)
 * [Multiple hypothesis correction](https://osf.io/csxd5)
 * [Data leakage](https://osf.io/d8mzb)
+* [Pseudoreplication](https://osf.io/hyxvr)
 
 ## **License and citation**
 

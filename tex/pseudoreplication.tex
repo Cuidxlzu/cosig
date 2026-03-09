@@ -1,0 +1,85 @@
+\documentclass[letterpaper, 12pt]{article}
+\usepackage{listings}
+\input{tex/_preamble}
+\begin{document}
+\flushleft\includegraphics[width=0.5\textwidth]{img/home/241017_final_logo_mockup.png}
+
+\cosigsection{Pseudoreplication}{9 March 2026}
+
+Coined by \href{https://doi.org/10.2307/1942661}{Hulbert (1984)}, the term pseudoreplication to refers to the treatment of non-independent observations as if they were independent replicates. Pseudoreplication is a common source of errors in biomedicine, though it also is found in other subject areas. It generally arises through ignorance of statistical methods. It can dramatically increase the rate of false positives.
+
+For example, suppose you have two groups each of three people, and your hypothesis is that group A weighs more than group B.
+
+We can simulate this situation in R and perform a t-test:
+
+\begin{lstlisting}[language=R]
+A <- c(66,72,44) # weights of 3 people in group A
+B <- c(69,48,80) # weights of 3 people in group B
+t.test(A,B)
+\end{lstlisting}
+
+This gives the result:
+
+\begin{verbatim}
+Welch Two Sample t-test
+t = -0.3946, df = 3.9623, p-value = 0.7135
+mean of x, mean of y
+60.66667, 65.66667
+\end{verbatim}
+
+Not surprisingly, a 5 kg difference in weight is not statistically significant for two groups of 3 people.
+
+
+\subsection*{Artificial inflation of sample size}
+
+But suppose we take 50 repeated measurements for each person, and then enter each of those measures into a t-test.
+
+\begin{lstlisting}[language=R]
+Ax <- rep(A,50) + rnorm(50,0,1) # 50 repetitions with random noise
+Bx <- rep(B,50) + rnorm(50,0,1)
+
+t.test(Ax,Bx)
+\end{lstlisting}
+
+Now we get a strongly significant t-test result, even though the means are virtually the same:
+
+\begin{verbatim}
+t = -3.4591, df = 295.16, p-value = 0.0006219
+mean of x   mean of y
+60.58775    65.68006
+\end{verbatim}
+
+In this case, we have artificially inflated the degrees of freedom by including the replications as if they were independent observations. Most people are taught that the t-test is only valid when observations are independent, but may not fully understand this point until shown an example like this, where they are very obviously not independent, because they are repeated measures from the same three individuals.
+
+\subsection*{Other types of pseudoreplication}
+
+%This is an extreme example to make the point. But, 
+Pseudoreplication effects can also increase false positives in any situation where a set of measures in groups A and B are not independent from one another.
+
+Another example comes from analysis of temporal sequences of events. Suppose you want to compare groups A and B in terms of the size of an event-related potential (ERP). If you pre-define a time window for the ERP and compare mean values, that is appropriate. 
+
+However, ERP is typically measured at a sampling rate of 1000 Hz or more, so that mean will be based on averaging many measures. Successive data points will be auto-correlated and therefore should not be treated as independent. Some researchers have entered ERP data into analyses treating each data point as an independent observation. If you do that, you can easily obtain extreme results, which become more striking as the sampling rate increases.
+
+Another popular example of pseudoreplication is when a sample is composed of animals from several litters, yet the animals are treated as independent. It is important to use a statistical analysis that takes into account the hierarchical structure of the data, so that dependencies of observations within a litter are adjusted for.
+
+\subsection*{Example 1: Concerns about included subjects}
+
+\href{https://doi.org/10.1038/s41586-025-09932-w}{Kiani et al. (2025)} analyze T cell responses to a range of HIV epitopes in 7 subjects that controlled viremia following treatment with broadly neutralizing anti-HIV antibody and 5 subjects that did not.
+As pointed out by \href{https://pubpeer.com/publications/469D3F4CC919EFBDC4187B81782160}{Pubpeer commenter Tubifera dimorphotheca}, there could be different conclusions if the subjects were treated as individuals, rather than treating each epitope response as an independent result. 
+
+\subsection*{Example 2: Multiple cells from the same animal}
+
+\href{https://doi.org/10.1016/j.neuron.2024.03.007}{Irala et al. (2024)} measure current frequency in mouse neurons.
+However, as pointed out by \href{https://pubpeer.com/publications/889076BC68B15221992DC17B4C4639}{Pubpeer commenter Jacobiasca lybica}, studying multiple cells from the same animal and treating them as independent scientific units is a type of pseudoreplication.
+
+
+\subsection*{Additional resources}
+\begin{itemize}
+    \setlength\itemsep{-0.5em}
+    \item \href{https://doi.org/10.1085/jgp.202012826}{``Pseudoreplication in physiology: More means less'' (2021)}
+        \item \href{https://doi.org/10.1371/journal.pbio.2005282}{``What exactly is ‘N’ in cell culture and animal experiments?'' (2018)}
+
+\end{itemize}
+
+
+\end{document}

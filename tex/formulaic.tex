@@ -4,11 +4,11 @@
 \flushleft\includegraphics[width=0.5\textwidth]{img/home/241017_final_logo_mockup.png}
 
 \cosigsection{Formulaic research}
-{14 November 2025}
+{9 March 2026}
 
 Many research fields have seen recent explosions in the number of articles performing what could be described as ``formulaic'' research. Such articles often follow a similar template and similar methods and are only differentiated by the exact variable, outcome, disease, subject, etc. that has been swapped in. This strain of research has been described as ``cut-and-paste research'' and \href{https://doi.org/10.1126/science.zgawnij}{``research Mad Libs\textregistered''}. 
 
-This guide describes several fields that have recently seen a large number of formulaic research articles published. Many are suspected to result from the activity of research paper mills, organizations that are known to sell authorship on mass-produced manuscripts.
+This guide describes several fields, methodologies and datasets that have recently seen a large number of formulaic research articles published. Many are suspected to result from the activity of research paper mills, organizations that are known to sell authorship on mass-produced manuscripts.
 
 When evaluating any manuscript, some helpful questions to ask include:
 
@@ -18,6 +18,7 @@ When evaluating any manuscript, some helpful questions to ask include:
     \item Are the methodological specifics (e.g., inclusion/exclusion criteria) well-justified?
     \item Does this work seem to resemble a previous work with only minor variations?
     \item Does this work control for possible false discoveries (see COSIG's \href{https://osf.io/csxd5}{entry on multiple hypothesis correction})?
+    \item Is the data under analysis trustworthy?
 \end{itemize}
 
 \subsection*{Example 1: Mendelian randomization studies}
@@ -57,13 +58,15 @@ The \href{https://www.fda.gov/drugs/fdas-adverse-event-reporting-system-faers/fd
 Given the size of the data, pharmaceutical companies, regulatory agencies and pharmacovigilance researchers typically rely on statistical data mining algorithms to aid this process. The most common method for data mining is \href{https://doi.org/10.1007/s40264-024-01421-9}{disproportionality analysis}, which involves identifying drug-event combinations that occur more frequently than expected by chance. Statistics reported in disproportionality analyses include the Proportional Reporting Ratio (PRR), Reporting Odds Ratio (ROR) and the Empirical Bayes Geometric Mean (EBGM, an output of the Multi-item Gamma Poisson Shrinker algorithm, MGPS).
 
 ICSRs and disproportionality analyses using them are subject to inherent limitations:
+
 \begin{itemize}
     \setlength\itemsep{-0.5em}
     \item Reports are made voluntarily and various external factors can influence the likelihood of a report actually being submitted to FAERS.
     \item Drug-event associations are not certain and there is often insufficient information included in ICSRs to rule out other factors involved each case.
-    \item FAERS does not provide denominators (e.g., the number of patients exposed to a drug or experiencing an adverse event). Note that the total number of adverse events of any kind associated with a drug is often used as a proxy for exposure in disproportionality analyses.
+    \item FAERS does not provide denominators, e.g., the number of patients exposed to a drug or experiencing an adverse event. Note that the total number of adverse events of any kind associated with a drug is often used as a proxy for exposure in disproportionality analyses.
     \item Disproportionality measures are subject to \href{https://doi.org/10.1007/s40264-013-0063-5}{competition bias}---an over-reporting of cases for a particular event or drug can artificially lower disproportionality measures for other events and drugs.
 \end{itemize}
+
 Disproportionality methods do not allow researchers to estimate incidence and infer causality. This prevents researchers from ranking drugs according to their risk, especially when comparing medications with heterogeneous clinical uses and time on the market. As a hypothesis-generating study design, disproportionality analysis can only detect the so-called ``signal of disproportionate reporting'' (SDR). The magnitude of this signal does not necessarily correlate with the strength of the association or its likelihood of representing a real causal relationship.
 
 Since the mid-2000s, the FDA has provided public access to FAERS data through the \href{https://fis.fda.gov/sense/app/95239e26-e0be-42d9-a960-9a5f7f1c25ee/sheet/7a47a261-d58b-4203-a8aa-6d3021737452/state/analysis}{FAERS Public Dashboard}, the \href{https://open.fda.gov/}{OpenFDA API} and \href{https://www.fda.gov/drugs/fdas-adverse-event-reporting-system-faers/fda-adverse-event-reporting-system-faers-latest-quarterly-data-files}{quarterly data reports}. In the last few years, FAERS data has frequently been used to publish formulaic research articles featuring disproportionality analyses. These articles are generally not well-motivated, apply multiple generic methods (leading to redundant results) and interpret results in an nonspecific, standardized format overlooking inherent and study-specific limitations.
@@ -71,6 +74,12 @@ Since the mid-2000s, the FDA has provided public access to FAERS data through th
 In one such study, \href{https://doi.org/10.1111/andr.13533}{Wang et al. (2023)} perform a disproportionality analysis focused on identifying adverse events associated with sildenafil, a widely-used drug for which adverse events are largely well-understood. They apply four different algorithms to compute SDRs even though these algorithms are heavily inter-dependent and render very similar results to one another. The authors find that sildenafil has an ``unexpected'' association with pulmonary hypertension. However, sildenafil is frequently prescribed to treat pulmonary hypertension. Other events for which the authors find an association include malignant melanoma and aortic dissection rupture, conditions which are more common in the older patient population that takes sildenafil. The authors do not adjust for age in their analysis.
 
 These articles often use similar formatting and style (same figures, methods and tables) and contain obvious errors in technical terminology. For example, disproportionality analysis methods like ``Bayesian confidence propagation neural network'' are frequently reported as ``Bayesian confidence interval progressive neural network'', ``Bayesian belief propagation neural network'' and ``Bayesian configuration promotion neural network''. 
+
+\subsubsection*{Vaccine Adverse Events Reporting System (VAERS) data}
+
+The limitations described above for analyzing FAERS data are also applicable to the analysis of data from the \href{https://vaers.hhs.gov/}{Vaccine Averse Events Reporting System (VAERS)}. VAERS enables anyone to report any adverse event they believe to be related to a vaccine they received. VAERS allows public health officials to detect adverse reactions to vaccines that are so rare that even large, pre-approval clinical trials are underpowered to detect a causal association before a vaccine is approved and marketed. For instance, VAERS reports prompted the FDA and Centers for Disease Control and Prevention (CDC) to investigate \href{https://archive.cdc.gov/#/details?url=https://www.cdc.gov/vaccines/vpd-vac/rotavirus/vac-rotashield-historical.htm}{an association between intestinal intussusception and the rotavirus vaccine RotaShield\textsuperscript{\textregistered} in infants}. The resulting investigations concluded that RotaShield\textsuperscript{\textregistered} increased the risk for intussusception by 1 or 2 cases per 10,000 vaccinated infants. RotaShield\textsuperscript{\textregistered} was withdrawn from the market by its manufacturer in 1999.
+
+VAERS has frequently been misused to make broad claims about vaccine safety that are not supported by evidence. For more information, see reports from \href{https://publichealth.jhu.edu/2022/what-vaers-is-and-isnt}{John Hopkins University Bloomberg School of Public Health} and \href{https://www.mcgill.ca/oss/article/covid-19-critical-thinking-health/dont-fall-vaers-scare-tactic}{McGill University Office for Science and Society}.
 
 \subsubsection*{Additional resources}
 
@@ -81,6 +90,8 @@ These articles often use similar formatting and style (same figures, methods and
     \item \href{https://doi.org/10.3389/fdsfr.2023.1323057}{``Conducting and interpreting disproportionality analyses derived from spontaneous reporting systems'' (2024)}
     \item \href{https://doi.org/10.1007/s40264-024-01423-7}{``The REporting of A Disproportionality Analysis for DrUg Safety Signal Detection Using Individual Case Safety Reports in PharmacoVigilance (READUS-PV): Explanation and Elaboration'' (2024)}
     \item \href{https://doi.org/10.1007/s40264-024-01421-9}{``The Reporting of a Disproportionality Analysis for Drug Safety Signal Detection Using Individual Case Safety Reports in PharmacoVigilance (READUS-PV): Development and Statement.'' (2024)}
+    \item \href{https://www.mcgill.ca/oss/article/covid-19-critical-thinking-health/dont-fall-vaers-scare-tactic}{``Don’t Fall for the `VAERS Scare' Tactic'' (2021)}
+    \item \href{https://publichealth.jhu.edu/2022/what-vaers-is-and-isnt}{``What VAERS Is (And Isn’t)'' (2022)}
 \end{itemize}
 
 
@@ -165,6 +176,26 @@ The \href{https://fcampelo.github.io/EC-Bestiary/}{Evolutionary Computation Best
     \item \href{https://doi.org/10.4018/978-1-4666-0270-0.ch005}{``A Rigorous Analysis of the Harmony Search Algorithm: How the Research Community can be Misled by a “Novel” Methodology'' (2012)}
     \item \href{https://doi.org/10.1111/itor.13176}{``Exposing the grey wolf, moth-flame, whale, firefly, bat, and antlion algorithms: six misleading optimization techniques inspired by bestial metaphors'' (2022)}
     \item \href{https://fcampelo.github.io/EC-Bestiary/}{The Evolutionary Computation Bestiary}
+\end{itemize}
+
+\subsection*{Example 8: Kaggle datasets}
+
+\href{https://www.kaggle.com/datasets}{Kaggle} is a platform where users can share any and all kinds of data. Many Kaggle datasets are uploaded as a part of \href{https://www.kaggle.com/competitions}{public competitions}, such as a competition where users compete to create the best algorithm for \href{https://www.kaggle.com/competitions/ieee-fraud-detection/overview}{detecting fraud in e-commerce transactions}. Users often publicly share their entry's code on the Kaggle platform.
+
+A growing number of articles analyze datasets sourced from Kaggle. Many of these articles propose machine learning approaches to tasks on these datasets that do not markedly differ from nor improve upon the performance achieved by publicly-available solutions on a competition's ``Leaderboard'' page. For instance, articles by \href{https://doi.org/10.1007/s44163-024-00169-6}{de Filippis and Al Foysal (2024)} and \href{https://doi.org/10.1038/s41598-025-22171-3}{Tariq et al. (2025)} claim to analyze factors affecting student stress using \href{https://www.kaggle.com/datasets/rxnach/student-stress-factors-a-comprehensive-analysis/data}{a Kaggle dataset} on the subject. Both articles reproduce a substantial portion of the original dataset uploader's \href{https://github.com/Chhabii/Students-Stress-Factors-Analysis}{sample analysis}, as detailed by \href{https://pubpeer.com/publications/2DDE0CBFB7C2138A5945A5292EF624#2}{Maarten Van Kampen on PubPeer}.
+
+It is important to remember that Kaggle is only a content-sharing platform. No dataset should be trusted merely because it is on Kaggle. Kaggle hosts many valuable datasets uploaded by trustworthy entities, but it also hosts unverifiable datasets unsuitable for scientific research.
+
+\href{https://doi.org/10.64898/2026.02.24.26347028}{Gibson et al. (2026)} present evidence that some commonly-analyzed Kaggle datasets lack data provenance and might be fabricated. In late 2025, Springer Nature \href{https://doi.org/10.53053/XFKN9077}{retracted} nearly 40 publications based on a dataset supposedly containing the faces of autistic and non-autistic children. This dataset, created by one retired engineer, contains no evidence that its subjects are or are not autistic as claimed nor that they provided consent to be included. It is not possible to make credible claims based on analyzing a dataset like this because there is no reason to trust its provenance.
+
+Note that Kaggle provides a 10-point ``usability'' score for datasets uploaded to its platform. This score cannot be used to identify if datasets are real or trustworthy.
+
+\subsubsection*{Additional resources}
+
+\begin{itemize}
+    \setlength\itemsep{-0.5em}
+    \item \href{https://doi.org/10.64898/2026.02.24.26347028}{``Evidence of Unreliable Data and Poor Data Provenance in Clinical Prediction Model Research and Clinical Practice'' (2026)}
+    \item \href{https://doi.org/10.53053/XFKN9077}{``Exclusive: Springer Nature retracts, removes nearly 40 publications that trained neural networks on `bonkers' dataset'' (2025)}
 \end{itemize}
 
 \end{document}

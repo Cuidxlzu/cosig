@@ -4,7 +4,7 @@
 \flushleft\includegraphics[width=0.5\textwidth]{img/home/241017_final_logo_mockup.png}
 
 \cosigsection{Evaluating the performance of multiclass classifiers}
-{22 May 2025}
+{9 March 2026}
 
 A \href{https://en.wikipedia.org/wiki/Classification_rule}{classifier} is a procedure that sorts objects in a population into classes. Multiclass classification is a classification task where there are more than two possible classes (e.g., the classification of citrus fruit as either lemon, orange or tangerine). Evaluation of multiclass classifiers is similar in many ways to the evaluation of binary classifiers (see COSIG's \href{https://osf.io/pvr4a}{entry on binary classifiers here}).
 
@@ -63,7 +63,7 @@ score of 0.11 and an accuracy of 1.76'' (accuracy cannot be greater than 1.0). T
 
 \bgroup
 \def\arraystretch{1.3}
-\begin{table}[h!tbp]
+\begin{table}[h!]
 \centering
 \small
 \begin{tabular}{|l|l|l|l|l|}
@@ -81,6 +81,21 @@ weighted avg                      & 1.87 & 0.98 & 1.87 & 12781  \\ \hline
 \caption*{Adapted from Table 2 of \href{https://doi.org/10.1109/IC3I59117.2023.10397896}{Sharma et al. (2023)}.}
 \end{table}
 \egroup
+
+\pagebreak
+
+\subsection*{Example 3: Treating binary classification as multiclass}
+
+\href{https://doi.org/10.1016/j.comcom.2022.08.015}{Ravi et al. (2022)} present classifier metrics for the detection of Android malware. This is a binary classification problem: a given piece of code is either malware or not.
+However, one cannot obtain the accuracy, precision, and recall values shown in their Table 6 from the confusion matrices shown in that same table.
+
+This is likely because, as shown by \href{https://pubpeer.com/publications/8C0482DFDFB7923AA5D156709FAA32}{PubPeer commenter Nerita Vitiensis}, the authors treated this as a multiclass classification problem, evaluating the positive and negative cases independently and averaging the results. This is not a correct way to handle a binary classification problem.
+
+\begin{figure}[h!tbp]
+    \centering
+    \includegraphics[width=0.8\textwidth]{img/multiclass_classifiers/binary_as_multiclass.png}
+    \caption*{Adapted from Table 6 of \href{https://doi.org/10.1016/j.comcom.2022.08.015}{Ravi et al. (2022)}.}
+\end{figure}
 
 \subsection*{Additional resources}
 
